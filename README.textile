@@ -29,13 +29,13 @@ basecamp.rb provides a ruby abstraction of the Basecamp API.  I have written bas
 
 Models can be used in a familiar fashion:
 
-<code>
+<pre>
 Project.find(project_id)
 Project.find_all
 Project.find(project_id).messages
 Project.find(project_id).milestones
 Project.find(project_id).todos
-</code>
+</pre>
 
 h3. Help wanted
 
