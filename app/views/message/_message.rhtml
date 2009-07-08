@@ -1,0 +1,5 @@
+<% full_message = Message.message(message.id) %>
+<li>
+  <strong>[<%= h categories(@project.id).find {|category| category.id == message.category.id}.name %>] <%= h message.title %></strong>, by <%=h message_author(full_message.author_id) %><br/>
+  <%= mobile_links(h(full_message.body)) %>
+</li>

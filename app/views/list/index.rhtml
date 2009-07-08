@@ -1,0 +1,27 @@
+<%= render :partial => 'project/navigation' %>
+
+<h3>Active to-do lists</h3>
+
+<% @todos.each do |id, todo| %>
+  <h4><%= todo.name %></h4>
+  <ul>
+    <% @list_items[todo.id].each do |list_item| %>
+      <% if list_item.completed %>
+        <li><%= mobile_links(h(list_item.content)) %> (<strong>completed</strong>)</li>
+      <% else %>
+        <li>
+          <% form_tag complete_todo_url(:id => @project.id, :todo_id => list_item.id) do %>
+            <%= mobile_links(h(list_item.content)) %><br/>
+            <%= submit_tag 'complete' %>
+          <% end %>
+        </li>
+      <% end %>
+    <% end %>
+    <li>
+      <form action="<%= create_todo_url(:id => @project.id, :todo_id => todo.id) %>" method="post">
+        <input type="text" name="content" value="" />
+        <%= submit_tag 'create' %>
+      </form>
+    </li>
+  </ul>
+<% end %>

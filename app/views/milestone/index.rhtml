@@ -1,0 +1,15 @@
+<%= render :partial => 'project/navigation' %>
+
+<h3>Milestones</h3>
+
+<%= render :partial => 'milestones' %>
+
+<h3>Create a milestone</h3>
+
+<form action="<%= create_milestone_url(:id => @project.id) %>" method="post">
+  <strong>Title</strong><br/>
+  <%= text_field 'milestone', 'title' %><br/>
+  <strong>Deadline</strong><br/>
+  <%= date_select 'milestone', 'deadline' %><br/>
+  <%= submit_tag 'create' %>
+</form>

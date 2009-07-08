@@ -1,0 +1,22 @@
+<%= render :partial => 'project/navigation' %>
+
+<h3>Latest messages</h3>
+<%= render :partial => 'messages' %>
+
+<h3>Post a new message</h3>
+<form action="<%= post_message_url(:id => @project.id) %>" method="post">
+  <dl>
+    <input type="hidden" name="project_id" value="<%= @project.id %>" />
+    <input type="hidden" name="page" value="project" />
+    <dt>Category</dt>
+    <dd><select name="category_id"><%= options_for_categories(Message.message_categories(@project.id)) %></select></dd>
+    <dt>Title</dt>
+    <dd><input type="text" name="title" /></dd>
+    <dt>Body</dt>
+    <dd><textarea name="body"></textarea></dd>
+    <dt>Private?</dt>
+    <dd><input type="checkbox" name="private" value="1" /></dd>
+    <dt>&nbsp;</dt>
+    <dd><input type="submit" name="create_message" value="Post" /></dd>
+  </dl>
+</form>

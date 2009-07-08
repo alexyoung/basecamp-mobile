@@ -1,0 +1,64 @@
+= Basecamp Mobile
+
+== Introduction
+
+This is a small rails application that provides access to Basecamp (http://www.basecamphq.com) in a format suitable for mobile phones.  
+
+Basecamp Mobile was created by Alex Young (http://alexyoung.org) and is released under the MIT license by Helicoid (http://helicoid.net).
+
+Run "rake appdoc" to generate API documentation.
+
+
+== Requirements
+
+Basecamp Mobile requires Rails 2.
+
+
+== Installation and usage
+
+Installation depends on how your server is set up.  However, you can start it up quickly by using WEBrick from the command line:
+
+  ruby script/server
+
+
+== Hacking
+
+Since Basecamp Mobile has been packaged as a rails application, some effort has gone into making the "models" appear like ActiveRecord objects.  This is largely to keep code in controllers and views simple and familiar.
+
+basecamp.rb provides a ruby abstraction of the Basecamp API.  I have written basecamp_extensions.rb and basecamp_wrapper.rb to add a few extra things to basecamp.rb.  By keeping my extensions separate and using some meta-programming it should provide some abstraction between Basecamp Mobile and the API, should the API change in the future.  New features in rails or suitable libraries will hopefully make the wrapper obsolete.
+
+Models can be used in a familiar fashion:
+
+  Project.find(project_id)
+  Project.find_all
+  Project.find(project_id).messages
+  Project.find(project_id).milestones
+  Project.find(project_id).todos
+
+== Help wanted
+
+I haven't had time to develop a caching strategy so far, and if you use Basecamp Mobile for any length of time you might notice it's slightly slow.  To get started I used a few helpers that cache objects in the session, and I used the Basecamp Wrapper class to begin work on creating (what should be eventually) ActiveRecord-like objects.  A good strategy will probably use this, and creating an observer-like caching system using what's already in rails.
+
+Caching will have to work using a different strategy in the future.
+
+To get talking to me about this, or submit your own code, begin a conversation on our forum (http://forums.helicoid.net) or send a quick message to me (http://alexyoung.org/contact).
+
+== Libraries
+
+The following libraries have been used:
+
+  * basecamp.rb, provided by 37signals
+  * login_system.rb, from Typo
+
+
+== License
+
+This software is released under the MIT license.
+
+Copyright (c) 2006 Alex Young, Helicoid
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

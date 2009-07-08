@@ -1,0 +1,18 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Basecamp Mobile<%= ": #{@page_title}" if @page_title %></title>
+    <link href="/stylesheets/screen.css"   media="screen, print" rel="Stylesheet" type="text/css" />
+    <link href="/stylesheets/handheld.css" media="handheld" rel="Stylesheet" type="text/css" />
+</head>
+<body>
+  <h1>Basecamp mobile</h1>
+  <%= content_tag('h2', @page_title) if @page_title %>
+  <%= navigation if session[:bc] %>
+  <%= standard_messages %>
+  <%= yield %>
+  <hr/>
+  <p id="footer">Report a bug: <a href="http://helicoid.loomapp.com/mob/public/basecampmobile">mobile</a>, <a href="http://helicoid.loomapp.com/public/basecampmobile">web</a></p>
+</body>
+</html>

@@ -1,0 +1,10 @@
+      <li>
+        <% if milestone.completed %>
+          <%= h(milestone.title) + ' (<strong>completed</strong>)' %>
+        <% else %>
+          <% form_tag complete_milestone_url(:id => @project.id, :milestone_id => milestone.id) do %>
+            <strong><%=h milestone.title %></strong> (deadline: <%=d milestone.deadline %>)<br/>
+            <%= submit_tag 'complete' %>
+          <% end %>
+        <% end %>
+      </li>

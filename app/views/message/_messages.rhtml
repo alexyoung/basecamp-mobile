@@ -1,0 +1,5 @@
+  <ul>
+    <% @project.messages[0..4].each do |message| %>
+      <%= render :partial => 'message/message', :locals => {:message => message} %>
+    <% end %>
+  </ul>

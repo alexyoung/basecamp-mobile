@@ -1,0 +1,4 @@
+  <%= link_to_if !['project', 'message'].include?(params[:controller]), 'Messages', project_url(:id => @project.id) %> 
+| <%= link_to_if params[:controller] != 'list', 'To-Do', todos_url(:id => @project.id) %> 
+| <%= link_to_if params[:controller] != 'milestone', 'Milestones', milestones_url(:id => @project.id) %>  
+<hr/>

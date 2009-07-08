@@ -1,0 +1,12 @@
+body { font-size: 12px; background-color: white; font-family: "Helvetica Neue", Helvetica, sans-serif; padding: 0.7em 4em 2em 4em; }
+
+h1 { font-family: Helvetica, sans-serif; font-size: large; margin: 0; font-weight: bold; color: #411; }
+h2 { font-family: Helvetica, sans-serif; font-size: medium; margin: 0; padding-top: 15px; padding-bottom: 5px; color: #aaa; }
+h3, h4 { margin: 2px 0 4px 0; padding: 0; color: #411; font-size: normal}
+h4 { text-decoration: underline; margin: 0; }
+p { margin: 10px 0 0 0; padding: 0; }
+
+dt { float: left; width: 120px; font-size: 14px; line-height: 24px;}
+dd  { margin: 0 0 5px 90px; font-size: 11px; line-height: 24px; color: #666; margin-left: 80px; }
+
+li { margin-bottom: 5px; }

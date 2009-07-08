@@ -1,0 +1,5 @@
+  <ul>
+    <% @milestones.sort {|x, y| x.completed.to_s <=> y.completed.to_s }.each do |milestone| %>
+      <%= render :partial => 'milestone/milestone', :locals => {:milestone => milestone} %>
+    <% end %>
+  </ul>
